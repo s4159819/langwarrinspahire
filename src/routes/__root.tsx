@@ -101,7 +101,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@context": "https://schema.org",
           "@type": "HomeAndConstructionBusiness",
           name: "Langwarrin Spa Hire",
-          image: "",
+          image: "https://langwarrinspahire.lovable.app/og-image.jpg",
+          url: "https://langwarrinspahire.lovable.app/",
           telephone: "+61447775332",
           areaServed: [
             "Cranbourne", "Frankston", "Mornington Peninsula", "Dromana", "Rye",
