@@ -132,15 +132,7 @@ function Home() {
               </ul>
             </div>
 
-            {/* Hero product image */}
-            <div className="hidden lg:flex items-center justify-center relative">
-              <div className="absolute -inset-6 bg-white/10 rounded-full blur-3xl" />
-              <img
-                src={spa12Seater}
-                alt="Langwarrin Spa Hire — 12 seater mobile spa"
-                className="relative w-full max-w-lg rounded-3xl shadow-2xl shadow-navy/40 rotate-2 border-4 border-white/20"
-              />
-            </div>
+            <HeroCarousel />
           </div>
         </div>
         <WaveDivider fill="var(--background)" />
