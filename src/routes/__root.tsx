@@ -83,6 +83,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:image", content: "https://langwarrinspahire.lovable.app/og-image.jpg" },
       { property: "og:url", content: "https://langwarrinspahire.lovable.app/" },
 
+      { title: "Lovable App" },
+      { property: "og:title", content: "Lovable App" },
+      { name: "twitter:title", content: "Lovable App" },
+      { name: "description", content: "Langwarrin Spa Hire offers portable hot tub rentals for events, delivering, setting up, and picking up spas." },
+      { property: "og:description", content: "Langwarrin Spa Hire offers portable hot tub rentals for events, delivering, setting up, and picking up spas." },
+      { name: "twitter:description", content: "Langwarrin Spa Hire offers portable hot tub rentals for events, delivering, setting up, and picking up spas." },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
