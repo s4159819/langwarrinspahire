@@ -69,7 +69,7 @@ export function ContactForm() {
         `Name: ${f.name}\nEmail: ${f.email}\nMobile: ${f.mobile}\nSuburb: ${f.suburb}\nSpa size: ${f.spa}\n\nMessage:\n${f.message || "(none)"}\n`,
       );
       const subject = encodeURIComponent(`Spa hire enquiry — ${f.name}`);
-      window.location.href = `mailto:jaydenjrobinson@icloud.com?subject=${subject}&body=${body}`;
+      window.location.href = `mailto:jaydenjrobinson@icloud.com?cc=info@langwarrinspahire.com.au&subject=${subject}&body=${body}`;
     } finally {
       setBusy(false);
     }
