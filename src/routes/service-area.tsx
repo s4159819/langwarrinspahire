@@ -5,6 +5,7 @@ import { SuburbGrid } from "@/components/SuburbGrid";
 import { MapEmbed } from "@/components/MapEmbed";
 import { CallButton, PHONE } from "@/components/CallButton";
 import { CallBanner } from "@/components/CallBanner";
+import spaTrailersBranded from "@/assets/spa-trailers-branded.jpg";
 
 const TITLE = "Service Area — Melbourne South East & Mornington Peninsula | Langwarrin Spa Hire";
 const DESC = "We service select South East Melbourne suburbs including Frankston, Cranbourne, Berwick, the Mornington Peninsula and more. Not sure? Call 0447 775 332.";
@@ -32,6 +33,18 @@ function ServiceAreaPage() {
         title="Explore Our Service Areas"
         subtitle="We service select parts of Victoria's South East — please check your suburb is within our range before enquiring."
       />
+
+      {/* Branded fleet visual */}
+      <section className="mx-auto max-w-7xl px-4 md:px-6 pt-10 md:pt-14">
+        <div className="relative overflow-hidden rounded-3xl shadow-lg border border-border">
+          <img
+            src={spaTrailersBranded}
+            alt="Two branded Langwarrin Spa Hire trailers with 0447 775 332 signage, ready for delivery."
+            loading="lazy"
+            className="w-full h-[220px] md:h-[320px] object-cover object-center"
+          />
+        </div>
+      </section>
 
       <section className="mx-auto max-w-7xl px-4 md:px-6 py-14">
         <p className="eyebrow">Suburbs We Cover</p>
