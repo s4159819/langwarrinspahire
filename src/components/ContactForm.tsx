@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { CheckCircle2, Send } from "lucide-react";
 
-// NOTE: This form currently opens the visitor's email client via a mailto: link
-// with fields pre-filled. Swap for a real backend (Supabase/Resend/Formspree) when available.
+// Enquiries are forwarded straight to the owner's inbox via FormSubmit (no backend).
+// First submission triggers a one-time confirmation email to the recipient below.
+const FORMSUBMIT_ENDPOINT = "https://formsubmit.co/ajax/jaydenjrobinson@icloud.com";
 
 type FormState = {
   name: string; email: string; mobile: string; suburb: string; spa: string; message: string;
@@ -11,12 +12,14 @@ type FormState = {
 const initial: FormState = { name: "", email: "", mobile: "", suburb: "", spa: "", message: "" };
 
 const SPA_OPTIONS = [
-  "6–8 Seater Rectangular",
-  "6–8 Seater Octagonal",
-  "8–10 Seater",
-  "12 Seater",
+  "6–8 Seater Rectangular Spa",
+  "6–8 Seater Octagonal Spa",
+  "8–10 Seater Spa — Marbled Light Blue",
+  "8–10 Seater Spa — Marbled Blue",
+  "12 Seater Spa",
   "Not Sure",
 ];
+
 
 export function ContactForm() {
   const [f, setF] = useState<FormState>(initial);
@@ -36,29 +39,48 @@ export function ContactForm() {
     return Object.keys(e).length === 0;
   };
 
-  const onSubmit = (ev: React.FormEvent) => {
+  const onSubmit = async (ev: React.FormEvent) => {
     ev.preventDefault();
     if (!validate()) return;
     setBusy(true);
-    const body = encodeURIComponent(
-      `Name: ${f.name}\nEmail: ${f.email}\nMobile: ${f.mobile}\nSuburb: ${f.suburb}\nSpa size: ${f.spa}\n\nMessage:\n${f.message || "(none)"}\n`,
-    );
-    const subject = encodeURIComponent(`Spa hire enquiry — ${f.name}`);
-    window.location.href = `mailto:info@langwarrinspahire.com.au?subject=${subject}&body=${body}`;
-    setTimeout(() => {
-      setBusy(false);
+    try {
+      const res = await fetch(FORMSUBMIT_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          _subject: `Spa hire enquiry — ${f.name}`,
+          _template: "table",
+          _captcha: "false",
+          Name: f.name,
+          Email: f.email,
+          Mobile: f.mobile,
+          Suburb: f.suburb,
+          "Spa size": f.spa,
+          Message: f.message || "(none)",
+        }),
+      });
+      if (!res.ok) throw new Error("Send failed");
       setSent(true);
       setF(initial);
-    }, 600);
+    } catch {
+      // Fallback: open the visitor's email client so the enquiry still gets through
+      const body = encodeURIComponent(
+        `Name: ${f.name}\nEmail: ${f.email}\nMobile: ${f.mobile}\nSuburb: ${f.suburb}\nSpa size: ${f.spa}\n\nMessage:\n${f.message || "(none)"}\n`,
+      );
+      const subject = encodeURIComponent(`Spa hire enquiry — ${f.name}`);
+      window.location.href = `mailto:jaydenjrobinson@icloud.com?subject=${subject}&body=${body}`;
+    } finally {
+      setBusy(false);
+    }
   };
 
   if (sent) {
     return (
       <div className="rounded-3xl border border-border bg-card p-8 text-center">
         <CheckCircle2 className="h-12 w-12 text-leaf mx-auto" />
-        <h3 className="mt-4 text-2xl font-semibold text-navy">Enquiry ready to send</h3>
+        <h3 className="mt-4 text-2xl font-semibold text-navy">Enquiry sent — thanks!</h3>
         <p className="mt-2 text-slate-ink">
-          Your email client should have opened with your enquiry pre-filled. Prefer to lock in a booking? Give us a
+          We've received your enquiry and will be in touch shortly. Prefer to lock in a booking now? Give us a
           call — <a href="tel:0447775332" className="text-spa font-semibold">0447 775 332</a>.
         </p>
         <button
@@ -72,6 +94,7 @@ export function ContactForm() {
   }
 
   const field = "w-full rounded-xl border border-input bg-white px-4 py-3 text-navy placeholder:text-slate-ink/60 focus:outline-none focus:ring-2 focus:ring-spa focus:border-spa transition";
+
   const label = "block text-sm font-medium text-navy mb-1.5";
   const errCls = "mt-1 text-xs text-destructive";
 
