@@ -22,6 +22,7 @@ export const SPAS: Spa[] = [
     seats: "Seats 6–8",
     jets: 6,
     short: "Trailer-mounted with access stairs, handrail, LPG gas heater, 6 full-flow jets and air massage manifold.",
+    image: spa68Rect,
   },
   {
     slug: "6-8-octagonal",
