@@ -1,3 +1,4 @@
+import React from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Shield, Truck, Sparkles, Flame, CheckCircle2, ArrowRight, PhoneCall,
@@ -12,6 +13,10 @@ import { CallBanner } from "@/components/CallBanner";
 import { Logo } from "@/components/Logo";
 import spaFleetLineup from "@/assets/spa-fleet-lineup.jpg";
 import spa12Seater from "@/assets/spa-12-seater.jpg";
+import spa810Pearl from "@/assets/spa-8-10-pearl.jpg";
+import spa810Blue from "@/assets/spa-8-10-blue.jpg";
+import spa68Octagonal from "@/assets/spa-6-8.jpg";
+import spa68Rect from "@/assets/spa-6-8-rect.jpg";
 
 const TITLE = "Langwarrin Spa Hire — Mobile Hot Tub Hire, Melbourne South East";
 const DESC = "Mobile spa hire across Melbourne's South East & Mornington Peninsula. Delivered, set up and picked up for parties, birthdays and events. Call 0447 775 332.";
@@ -36,6 +41,43 @@ const TRUST = [
   { icon: Sparkles, label: "Fully Cleaned Every Hire" },
   { icon: Flame, label: "Gas Heated — Fast Heat Up" },
 ];
+
+const HERO_IMAGES = [
+  { src: spa12Seater, alt: "12 Seater Mobile Spa" },
+  { src: spa810Pearl, alt: "8–10 Seater Marbled Light Blue Spa" },
+  { src: spa810Blue, alt: "8–10 Seater Marbled Blue Spa" },
+  { src: spa68Octagonal, alt: "6–8 Seater Octagonal Spa" },
+  { src: spa68Rect, alt: "6–8 Seater Rectangular Spa" },
+];
+
+function HeroCarousel() {
+  const [index, setIndex] = React.useState(0);
+
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % HERO_IMAGES.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <div className="hidden lg:flex items-center justify-center relative w-full max-w-lg">
+      <div className="absolute -inset-6 bg-white/10 rounded-full blur-3xl" />
+      <div className="relative w-full aspect-[4/3]">
+        {HERO_IMAGES.map((img, i) => (
+          <img
+            key={img.alt}
+            src={img.src}
+            alt={img.alt}
+            className={`absolute inset-0 w-full h-full object-cover rounded-3xl shadow-2xl shadow-navy/40 border-4 border-white/20 transition-opacity duration-1000 ${
+              i === index ? "opacity-100" : "opacity-0"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 const WHY = [
   { icon: Shield, title: "Built to commercial standard", body: "All our spas are constructed to Australian commercial regulations — safe, sturdy and party-ready." },
@@ -90,15 +132,7 @@ function Home() {
               </ul>
             </div>
 
-            {/* Hero product image */}
-            <div className="hidden lg:flex items-center justify-center relative">
-              <div className="absolute -inset-6 bg-white/10 rounded-full blur-3xl" />
-              <img
-                src={spa12Seater}
-                alt="Langwarrin Spa Hire — 12 seater mobile spa"
-                className="relative w-full max-w-lg rounded-3xl shadow-2xl shadow-navy/40 rotate-2 border-4 border-white/20"
-              />
-            </div>
+            <HeroCarousel />
           </div>
         </div>
         <WaveDivider fill="var(--background)" />
