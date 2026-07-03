@@ -62,14 +62,15 @@ export const SPAS: Spa[] = [
 /** Decorative fallback SVG or real photo */
 function SpaVisual({ spa }: { spa: Spa }) {
   return (
-    <div className="relative aspect-[16/10] rounded-2xl overflow-hidden hero-gradient flex items-center justify-center">
+    <div className="relative aspect-square rounded-2xl overflow-hidden hero-gradient flex items-center justify-center">
       {spa.image ? (
         <img
           src={spa.image}
           alt={`${spa.name} — mobile spa hire`}
           loading="lazy"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover object-center"
         />
+
       ) : (
         <svg viewBox="0 0 200 120" className="w-2/3 h-2/3 opacity-90" aria-hidden>
           <ellipse cx="100" cy="80" rx="80" ry="22" fill="rgba(255,255,255,0.15)" />

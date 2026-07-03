@@ -71,14 +71,15 @@ function SpasPage() {
               className="scroll-mt-24 grid md:grid-cols-2 gap-6 md:gap-10 items-center rounded-3xl bg-card border border-border p-6 md:p-8 shadow-sm"
             >
               <div className={idx % 2 === 1 ? "md:order-2" : ""}>
-                <div className="relative aspect-[16/11] rounded-2xl overflow-hidden hero-gradient">
+                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden hero-gradient">
                   {spa.image ? (
                     <img
                       src={spa.image}
                       alt={`${spa.name} — mobile spa hire Melbourne`}
                       loading="lazy"
-                      className="absolute inset-0 w-full h-full object-cover"
+                      className="absolute inset-0 w-full h-full object-cover object-center"
                     />
+
                   ) : (
                     <svg viewBox="0 0 200 120" className="absolute inset-0 w-full h-full opacity-90" aria-hidden preserveAspectRatio="xMidYMid slice">
                       <ellipse cx="100" cy="80" rx="90" ry="24" fill="rgba(255,255,255,0.15)" />
