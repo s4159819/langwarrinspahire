@@ -6,7 +6,7 @@ import { CallButton, PHONE } from "@/components/CallButton";
 import { CallBanner } from "@/components/CallBanner";
 
 const TITLE = "Hire Terms & Conditions | Langwarrin Spa Hire";
-const DESC = "Deposit, clearance requirements, bond and setup rules for hiring a portable spa from Langwarrin Spa Hire. Read before booking.";
+const DESC = "Deposit, clearance requirements, bond and setup rules for hiring a mobile spa from Langwarrin Spa Hire. Read before booking.";
 
 export const Route = createFileRoute("/hire-terms")({
   head: () => ({
@@ -120,7 +120,7 @@ function HireTermsPage() {
           <div className="rounded-3xl border border-aqua bg-aqua/50 p-5 flex items-start gap-3">
             <DollarSign className="h-6 w-6 text-navy shrink-0" />
             <p className="text-navy font-medium">
-              Hire a spa for less than <strong>$13 per hour</strong><span className="text-spa">*</span>
+              Hire a spa for less than <strong>$17 per hour</strong><span className="text-spa">*</span>
               <span className="block text-xs font-normal text-slate-ink mt-1">*Conditions apply — minimum 24 hours, local area only.</span>
             </p>
           </div>

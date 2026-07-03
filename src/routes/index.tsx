@@ -11,8 +11,8 @@ import { SuburbGrid } from "@/components/SuburbGrid";
 import { CallBanner } from "@/components/CallBanner";
 import { Logo } from "@/components/Logo";
 
-const TITLE = "Langwarrin Spa Hire — Portable Hot Tub Hire, Melbourne South East";
-const DESC = "Portable spa hire across Melbourne's South East & Mornington Peninsula. Delivered, set up and picked up for parties, birthdays and events. Call 0447 775 332.";
+const TITLE = "Langwarrin Spa Hire — Mobile Hot Tub Hire, Melbourne South East";
+const DESC = "Mobile spa hire across Melbourne's South East & Mornington Peninsula. Delivered, set up and picked up for parties, birthdays and events. Call 0447 775 332.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -63,7 +63,7 @@ function Home() {
               Don't just have a party — <span className="text-leaf">enjoy a luxurious spa</span> hire experience.
             </h1>
             <p className="mt-5 max-w-xl text-white/85 text-lg">
-              Melbourne's trusted portable spa hire. Delivered, set up and ready to relax in for
+              Melbourne's trusted mobile spa hire. Delivered, set up and ready to relax in for
               your next celebration — big or small.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -142,7 +142,7 @@ function Home() {
           <div>
             <p className="eyebrow">Great Value</p>
             <p className="mt-1 text-xl md:text-2xl font-bold text-navy">
-              Hire a spa for less than $13 per hour<span className="text-spa">*</span>
+              Hire a spa for less than $17 per hour<span className="text-spa">*</span>
             </p>
             <p className="mt-1 text-sm text-slate-ink">
               *Conditions apply — minimum 24 hours, local area only.

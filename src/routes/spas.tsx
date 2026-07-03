@@ -8,7 +8,7 @@ import { CallBanner } from "@/components/CallBanner";
 import { SPAS } from "@/components/SpaCard";
 
 const TITLE = "Our Spas — Book Your Luxurious Spa Hire | Langwarrin Spa Hire";
-const DESC = "Explore our range of trailer-mounted portable spas — 6–8, 8–10 and 12 seaters. Gas heated, jetted, fully set up. Book by phone: 0447 775 332.";
+const DESC = "Explore our range of trailer-mounted mobile spas — 6–8, 8–10 and 12 seaters. Gas heated, jetted, fully set up. Book by phone: 0447 775 332.";
 
 export const Route = createFileRoute("/spas")({
   head: () => ({
