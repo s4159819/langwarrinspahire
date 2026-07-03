@@ -72,12 +72,21 @@ function SpasPage() {
             >
               <div className={idx % 2 === 1 ? "md:order-2" : ""}>
                 <div className="relative aspect-[16/11] rounded-2xl overflow-hidden hero-gradient">
-                  <svg viewBox="0 0 200 120" className="absolute inset-0 w-full h-full opacity-90" aria-hidden preserveAspectRatio="xMidYMid slice">
-                    <ellipse cx="100" cy="80" rx="90" ry="24" fill="rgba(255,255,255,0.15)" />
-                    <ellipse cx="100" cy="72" rx="80" ry="18" fill="rgba(255,255,255,0.35)" />
-                    <path d="M20,70 Q60,55 100,70 T180,70" stroke="white" strokeWidth="2" fill="none" opacity="0.7" />
-                    <path d="M20,82 Q60,68 100,82 T180,82" stroke="white" strokeWidth="2" fill="none" opacity="0.5" />
-                  </svg>
+                  {spa.image ? (
+                    <img
+                      src={spa.image}
+                      alt={`${spa.name} — mobile spa hire Melbourne`}
+                      loading="lazy"
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                  ) : (
+                    <svg viewBox="0 0 200 120" className="absolute inset-0 w-full h-full opacity-90" aria-hidden preserveAspectRatio="xMidYMid slice">
+                      <ellipse cx="100" cy="80" rx="90" ry="24" fill="rgba(255,255,255,0.15)" />
+                      <ellipse cx="100" cy="72" rx="80" ry="18" fill="rgba(255,255,255,0.35)" />
+                      <path d="M20,70 Q60,55 100,70 T180,70" stroke="white" strokeWidth="2" fill="none" opacity="0.7" />
+                      <path d="M20,82 Q60,68 100,82 T180,82" stroke="white" strokeWidth="2" fill="none" opacity="0.5" />
+                    </svg>
+                  )}
                   <span className="absolute top-4 right-4 inline-flex items-center gap-1.5 rounded-full bg-white text-navy text-sm font-semibold px-3 py-1.5 shadow">
                     <Users className="h-4 w-4" /> {spa.seats}
                   </span>

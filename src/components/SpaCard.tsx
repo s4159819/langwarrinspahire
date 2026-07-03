@@ -1,5 +1,6 @@
 import { Users, ArrowRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
+import spa12Seater from "@/assets/spa-12-seater.jpg";
 
 export interface Spa {
   slug: string;
@@ -7,6 +8,7 @@ export interface Spa {
   seats: string;
   jets: number;
   short: string;
+  image?: string;
 }
 
 export const SPAS: Spa[] = [
@@ -37,21 +39,31 @@ export const SPAS: Spa[] = [
     seats: "Seats 12",
     jets: 12,
     short: "Our biggest spa. Ideal for large gatherings — 12 full-flow jets, air massage and rapid gas heat-up.",
+    image: spa12Seater,
   },
 ];
 
-/** Simple decorative SVG (no external image needed) */
-function SpaVisual({ seats }: { seats: string }) {
+/** Decorative fallback SVG or real photo */
+function SpaVisual({ spa }: { spa: Spa }) {
   return (
     <div className="relative aspect-[16/10] rounded-2xl overflow-hidden hero-gradient flex items-center justify-center">
-      <svg viewBox="0 0 200 120" className="w-2/3 h-2/3 opacity-90" aria-hidden>
-        <ellipse cx="100" cy="80" rx="80" ry="22" fill="rgba(255,255,255,0.15)" />
-        <ellipse cx="100" cy="72" rx="72" ry="16" fill="rgba(255,255,255,0.35)" />
-        <path d="M20,70 Q60,55 100,70 T180,70" stroke="white" strokeWidth="2" fill="none" opacity="0.7" />
-        <path d="M20,80 Q60,66 100,80 T180,80" stroke="white" strokeWidth="2" fill="none" opacity="0.5" />
-      </svg>
+      {spa.image ? (
+        <img
+          src={spa.image}
+          alt={`${spa.name} — mobile spa hire`}
+          loading="lazy"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      ) : (
+        <svg viewBox="0 0 200 120" className="w-2/3 h-2/3 opacity-90" aria-hidden>
+          <ellipse cx="100" cy="80" rx="80" ry="22" fill="rgba(255,255,255,0.15)" />
+          <ellipse cx="100" cy="72" rx="72" ry="16" fill="rgba(255,255,255,0.35)" />
+          <path d="M20,70 Q60,55 100,70 T180,70" stroke="white" strokeWidth="2" fill="none" opacity="0.7" />
+          <path d="M20,80 Q60,66 100,80 T180,80" stroke="white" strokeWidth="2" fill="none" opacity="0.5" />
+        </svg>
+      )}
       <span className="absolute top-3 right-3 inline-flex items-center gap-1 rounded-full bg-white/95 text-navy text-xs font-semibold px-3 py-1 shadow">
-        <Users className="h-3 w-3" /> {seats}
+        <Users className="h-3 w-3" /> {spa.seats}
       </span>
     </div>
   );
@@ -61,7 +73,7 @@ export function SpaCard({ spa, href = "/spas" }: { spa: Spa; href?: string }) {
   return (
     <article className="group rounded-3xl bg-card border border-border overflow-hidden shadow-sm hover:shadow-lg transition-all hover:-translate-y-1">
       <div className="p-3">
-        <SpaVisual seats={spa.seats} />
+        <SpaVisual spa={spa} />
       </div>
       <div className="p-5 pt-2">
         <h3 className="text-lg font-semibold text-navy">{spa.name}</h3>
