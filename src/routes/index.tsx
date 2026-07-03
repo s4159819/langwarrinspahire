@@ -11,6 +11,7 @@ import { SuburbGrid } from "@/components/SuburbGrid";
 import { CallBanner } from "@/components/CallBanner";
 import { Logo } from "@/components/Logo";
 import spaFleetLineup from "@/assets/spa-fleet-lineup.jpg";
+import spa12Seater from "@/assets/spa-12-seater.jpg";
 
 const TITLE = "Langwarrin Spa Hire — Mobile Hot Tub Hire, Melbourne South East";
 const DESC = "Mobile spa hire across Melbourne's South East & Mornington Peninsula. Delivered, set up and picked up for parties, birthdays and events. Call 0447 775 332.";
