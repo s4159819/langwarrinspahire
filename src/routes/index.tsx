@@ -2,6 +2,7 @@ import React from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Shield, Truck, Sparkles, Flame, CheckCircle2, ArrowRight, PhoneCall,
+  ChevronLeft, ChevronRight,
 } from "lucide-react";
 import { CallButton, PHONE } from "@/components/CallButton";
 import { WaveDivider } from "@/components/WaveDivider";
