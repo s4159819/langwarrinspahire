@@ -41,6 +41,43 @@ const TRUST = [
   { icon: Flame, label: "Gas Heated — Fast Heat Up" },
 ];
 
+const HERO_IMAGES = [
+  { src: spa12Seater, alt: "12 Seater Mobile Spa" },
+  { src: spa810Pearl, alt: "8–10 Seater Marbled Light Blue Spa" },
+  { src: spa810Blue, alt: "8–10 Seater Marbled Blue Spa" },
+  { src: spa68Octagonal, alt: "6–8 Seater Octagonal Spa" },
+  { src: spa68Rect, alt: "6–8 Seater Rectangular Spa" },
+];
+
+function HeroCarousel() {
+  const [index, setIndex] = React.useState(0);
+
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % HERO_IMAGES.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <div className="hidden lg:flex items-center justify-center relative w-full max-w-lg">
+      <div className="absolute -inset-6 bg-white/10 rounded-full blur-3xl" />
+      <div className="relative w-full aspect-[4/3]">
+        {HERO_IMAGES.map((img, i) => (
+          <img
+            key={img.alt}
+            src={img.src}
+            alt={img.alt}
+            className={`absolute inset-0 w-full h-full object-cover rounded-3xl shadow-2xl shadow-navy/40 border-4 border-white/20 transition-opacity duration-1000 ${
+              i === index ? "opacity-100" : "opacity-0"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 const WHY = [
   { icon: Shield, title: "Built to commercial standard", body: "All our spas are constructed to Australian commercial regulations — safe, sturdy and party-ready." },
   { icon: Flame, title: "Gas heating that actually heats", body: "Fast heat-up and excellent heat retention, so the good times keep going." },
