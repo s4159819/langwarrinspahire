@@ -53,18 +53,31 @@ const HERO_IMAGES = [
 
 function HeroCarousel() {
   const [index, setIndex] = React.useState(0);
+  const [hovered, setHovered] = React.useState(false);
+
+  const goTo = React.useCallback((n: number) => {
+    setIndex(((n % HERO_IMAGES.length) + HERO_IMAGES.length) % HERO_IMAGES.length);
+  }, []);
+
+  const prev = React.useCallback(() => goTo(index - 1), [index, goTo]);
+  const next = React.useCallback(() => goTo(index + 1), [index, goTo]);
 
   React.useEffect(() => {
+    if (hovered) return;
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % HERO_IMAGES.length);
     }, 4000);
     return () => clearInterval(timer);
-  }, []);
+  }, [hovered]);
 
   return (
     <div className="hidden lg:flex items-center justify-center relative w-full max-w-lg">
       <div className="absolute -inset-6 bg-white/10 rounded-full blur-3xl" />
-      <div className="relative w-full aspect-[4/3]">
+      <div
+        className="relative w-full aspect-[4/3] group"
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+      >
         {HERO_IMAGES.map((img, i) => (
           <img
             key={img.alt}
@@ -75,10 +88,34 @@ function HeroCarousel() {
             }`}
           />
         ))}
-      </div>
-    </div>
-  );
-}
+
+        {/* Prev / Next arrows */}
+        <button
+          onClick={prev}
+          aria-label="Previous spa image"
+          className="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/90 text-navy shadow-lg flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-white"
+        >
+          <ChevronLeft className="h-5 w-5" />
+        </button>
+        <button
+          onClick={next}
+          aria-label="Next spa image"
+          className="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/90 text-navy shadow-lg flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-white"
+        >
+          <ChevronRight className="h-5 w-5" />
+        </button>
+
+        {/* Slide indicators */}
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex items-center gap-2">
+          {HERO_IMAGES.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => goTo(i)}
+              aria-label={`Go to spa image ${i + 1}`}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                i === index ? "w-6 bg-white" : "w-2 bg-white/60 hover:bg-white/80"
+              }`}
+92              />93            ))}94          </div>95        </div>96      </div>97    );98  }
 
 const WHY = [
   { icon: Shield, title: "Built to commercial standard", body: "All our spas are constructed to Australian commercial regulations — safe, sturdy and party-ready." },
