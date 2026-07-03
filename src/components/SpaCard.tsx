@@ -43,18 +43,27 @@ export const SPAS: Spa[] = [
   },
 ];
 
-/** Simple decorative SVG (no external image needed) */
-function SpaVisual({ seats }: { seats: string }) {
+/** Decorative fallback SVG or real photo */
+function SpaVisual({ spa }: { spa: Spa }) {
   return (
     <div className="relative aspect-[16/10] rounded-2xl overflow-hidden hero-gradient flex items-center justify-center">
-      <svg viewBox="0 0 200 120" className="w-2/3 h-2/3 opacity-90" aria-hidden>
-        <ellipse cx="100" cy="80" rx="80" ry="22" fill="rgba(255,255,255,0.15)" />
-        <ellipse cx="100" cy="72" rx="72" ry="16" fill="rgba(255,255,255,0.35)" />
-        <path d="M20,70 Q60,55 100,70 T180,70" stroke="white" strokeWidth="2" fill="none" opacity="0.7" />
-        <path d="M20,80 Q60,66 100,80 T180,80" stroke="white" strokeWidth="2" fill="none" opacity="0.5" />
-      </svg>
+      {spa.image ? (
+        <img
+          src={spa.image}
+          alt={`${spa.name} — mobile spa hire`}
+          loading="lazy"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      ) : (
+        <svg viewBox="0 0 200 120" className="w-2/3 h-2/3 opacity-90" aria-hidden>
+          <ellipse cx="100" cy="80" rx="80" ry="22" fill="rgba(255,255,255,0.15)" />
+          <ellipse cx="100" cy="72" rx="72" ry="16" fill="rgba(255,255,255,0.35)" />
+          <path d="M20,70 Q60,55 100,70 T180,70" stroke="white" strokeWidth="2" fill="none" opacity="0.7" />
+          <path d="M20,80 Q60,66 100,80 T180,80" stroke="white" strokeWidth="2" fill="none" opacity="0.5" />
+        </svg>
+      )}
       <span className="absolute top-3 right-3 inline-flex items-center gap-1 rounded-full bg-white/95 text-navy text-xs font-semibold px-3 py-1 shadow">
-        <Users className="h-3 w-3" /> {seats}
+        <Users className="h-3 w-3" /> {spa.seats}
       </span>
     </div>
   );
