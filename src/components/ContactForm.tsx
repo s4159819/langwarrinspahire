@@ -47,10 +47,11 @@ export function ContactForm() {
       const res = await fetch(FORMSUBMIT_ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
+      body: JSON.stringify({
           _subject: `Spa hire enquiry — ${f.name}`,
           _template: "table",
           _captcha: "false",
+          _cc: "info@langwarrinspahire.com.au",
           Name: f.name,
           Email: f.email,
           Mobile: f.mobile,
@@ -68,7 +69,7 @@ export function ContactForm() {
         `Name: ${f.name}\nEmail: ${f.email}\nMobile: ${f.mobile}\nSuburb: ${f.suburb}\nSpa size: ${f.spa}\n\nMessage:\n${f.message || "(none)"}\n`,
       );
       const subject = encodeURIComponent(`Spa hire enquiry — ${f.name}`);
-      window.location.href = `mailto:jaydenjrobinson@icloud.com?subject=${subject}&body=${body}`;
+      window.location.href = `mailto:jaydenjrobinson@icloud.com?cc=info@langwarrinspahire.com.au&subject=${subject}&body=${body}`;
     } finally {
       setBusy(false);
     }
