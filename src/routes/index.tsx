@@ -1,3 +1,4 @@
+import React from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Shield, Truck, Sparkles, Flame, CheckCircle2, ArrowRight, PhoneCall,
