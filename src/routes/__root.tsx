@@ -63,9 +63,9 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   );
 }
 
-const SITE_TITLE = "Langwarrin Spa Hire — Portable Hot Tub Hire, Melbourne South East";
+const SITE_TITLE = "Langwarrin Spa Hire — Mobile Hot Tub Hire, Melbourne South East";
 const SITE_DESC =
-  "Melbourne's South East & Mornington Peninsula spa hire specialists. Portable hot tubs delivered, set up and picked up for parties, birthdays and events. Call 0447 775 332.";
+  "Melbourne's South East & Mornington Peninsula spa hire specialists. Mobile hot tubs delivered, set up and picked up for parties, birthdays and events. Call 0447 775 332.";
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
