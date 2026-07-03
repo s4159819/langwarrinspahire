@@ -52,7 +52,7 @@ export function ContactForm() {
           _subject: `Spa hire enquiry — ${f.name}`,
           _template: "table",
           _captcha: "false",
-          _cc: "info@langwarrinspahire.com.au,Muzza2211@hotmail.com",
+          _cc: CC_LIST,
           Name: f.name,
           Email: f.email,
           Mobile: f.mobile,
