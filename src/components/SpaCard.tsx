@@ -1,5 +1,6 @@
 import { Users, ArrowRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
+import spa12Seater from "@/assets/spa-12-seater.jpg";
 
 export interface Spa {
   slug: string;
@@ -7,6 +8,7 @@ export interface Spa {
   seats: string;
   jets: number;
   short: string;
+  image?: string;
 }
 
 export const SPAS: Spa[] = [
@@ -37,6 +39,7 @@ export const SPAS: Spa[] = [
     seats: "Seats 12",
     jets: 12,
     short: "Our biggest spa. Ideal for large gatherings — 12 full-flow jets, air massage and rapid gas heat-up.",
+    image: spa12Seater,
   },
 ];
 
