@@ -116,7 +116,12 @@ function HeroCarousel() {
                 i === index ? "w-6 bg-white" : "w-2 bg-white/60 hover:bg-white/80"
               }`}
             />
-
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
 const WHY = [
   { icon: Shield, title: "Built to commercial standard", body: "All our spas are constructed to Australian commercial regulations — safe, sturdy and party-ready." },
   { icon: Flame, title: "Gas heating that actually heats", body: "Fast heat-up and excellent heat retention, so the good times keep going." },
