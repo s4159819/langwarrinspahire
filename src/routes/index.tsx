@@ -59,34 +59,46 @@ function Home() {
           </div>
         </div>
         <div className="relative mx-auto max-w-7xl px-4 md:px-6 pt-16 md:pt-24 pb-24 md:pb-32">
-          <div className="max-w-3xl">
-            <p className="eyebrow text-aqua">Melbourne's South East · Mornington Peninsula</p>
-            <h1 className="mt-4 text-white text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.05]">
-              Don't just have a party — <span className="text-leaf">enjoy a luxurious spa</span> hire experience.
-            </h1>
-            <p className="mt-5 max-w-xl text-white/85 text-lg">
-              Melbourne's trusted mobile spa hire. Delivered, set up and ready to relax in for
-              your next celebration — big or small.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <CallButton variant="accent" size="lg" label={`Call Now — ${PHONE}`} />
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur border border-white/40 text-white px-6 py-4 font-semibold hover:bg-white/20 transition"
-              >
-                Get a Quote <ArrowRight className="h-4 w-4" />
-              </Link>
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+            <div className="max-w-3xl">
+              <p className="eyebrow text-aqua">Melbourne's South East · Mornington Peninsula</p>
+              <h1 className="mt-4 text-white text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.05]">
+                Don't just have a party — <span className="text-leaf">enjoy a luxurious spa</span> hire experience.
+              </h1>
+              <p className="mt-5 max-w-xl text-white/85 text-lg">
+                Melbourne's trusted mobile spa hire. Delivered, set up and ready to relax in for
+                your next celebration — big or small.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <CallButton variant="accent" size="lg" label={`Call Now — ${PHONE}`} />
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur border border-white/40 text-white px-6 py-4 font-semibold hover:bg-white/20 transition"
+                >
+                  Get a Quote <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
+
+              {/* Trust strip */}
+              <ul className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl">
+                {TRUST.map((t) => (
+                  <li key={t.label} className="flex items-center gap-2.5 text-sm text-white/90 bg-white/10 backdrop-blur border border-white/20 rounded-2xl px-3.5 py-3">
+                    <t.icon className="h-5 w-5 text-leaf shrink-0" />
+                    <span>{t.label}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
 
-            {/* Trust strip */}
-            <ul className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl">
-              {TRUST.map((t) => (
-                <li key={t.label} className="flex items-center gap-2.5 text-sm text-white/90 bg-white/10 backdrop-blur border border-white/20 rounded-2xl px-3.5 py-3">
-                  <t.icon className="h-5 w-5 text-leaf shrink-0" />
-                  <span>{t.label}</span>
-                </li>
-              ))}
-            </ul>
+            {/* Hero product image */}
+            <div className="hidden lg:flex items-center justify-center relative">
+              <div className="absolute -inset-6 bg-white/10 rounded-full blur-3xl" />
+              <img
+                src={spa12Seater}
+                alt="Langwarrin Spa Hire — 12 seater mobile spa"
+                className="relative w-full max-w-lg rounded-3xl shadow-2xl shadow-navy/40 rotate-2 border-4 border-white/20"
+              />
+            </div>
           </div>
         </div>
         <WaveDivider fill="var(--background)" />
