@@ -1,6 +1,8 @@
 import { Users, ArrowRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import spa12Seater from "@/assets/spa-12-seater.jpg";
+import spa810Pearl from "@/assets/spa-8-10-pearl.jpg";
+import spa810Blue from "@/assets/spa-8-10-blue.jpg";
 
 export interface Spa {
   slug: string;
@@ -27,11 +29,20 @@ export const SPAS: Spa[] = [
     short: "A social octagonal shape with 4 full-flow jets, air massage, deep contoured seats and LPG gas heating.",
   },
   {
-    slug: "8-10-seater",
-    name: "8–10 Seater Spa",
+    slug: "8-10-pearl",
+    name: "8–10 Seater Spa — Pearl White",
     seats: "Seats 8–10",
     jets: 6,
-    short: "Room to stretch out. Two model variants available, both with 6 full-flow jets and gas heating.",
+    short: "Bright pearl white octagonal interior with 6 full-flow jets, air massage, timber access step, stainless handrail and fast LPG gas heating.",
+    image: spa810Pearl,
+  },
+  {
+    slug: "8-10-blue",
+    name: "8–10 Seater Spa — Marbled Blue",
+    seats: "Seats 8–10",
+    jets: 6,
+    short: "Striking marbled blue octagonal interior with 6 full-flow jets, air massage, timber access step, stainless handrail and fast LPG gas heating.",
+    image: spa810Blue,
   },
   {
     slug: "12-seater",
@@ -42,6 +53,7 @@ export const SPAS: Spa[] = [
     image: spa12Seater,
   },
 ];
+
 
 /** Decorative fallback SVG or real photo */
 function SpaVisual({ spa }: { spa: Spa }) {
