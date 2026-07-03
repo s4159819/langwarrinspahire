@@ -47,10 +47,11 @@ export function ContactForm() {
       const res = await fetch(FORMSUBMIT_ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
+      body: JSON.stringify({
           _subject: `Spa hire enquiry — ${f.name}`,
           _template: "table",
           _captcha: "false",
+          _cc: "info@langwarrinspahire.com.au",
           Name: f.name,
           Email: f.email,
           Mobile: f.mobile,
