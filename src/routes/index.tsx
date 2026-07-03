@@ -100,7 +100,7 @@ function Home() {
               <p className="eyebrow">Our Range</p>
               <h2 className="mt-2 text-3xl md:text-4xl font-bold">Choose your perfect spa</h2>
               <p className="mt-3 text-slate-ink">
-                Four sizes from cozy 6–8 seaters right up to a 12 seater party spa. All trailer-mounted,
+                Five spas from cozy 6–8 seaters right up to a 12 seater party spa. All trailer-mounted,
                 all gas-heated.
               </p>
             </div>
@@ -108,9 +108,10 @@ function Home() {
               See all spas <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {SPAS.map((s) => <SpaCard key={s.slug} spa={s} />)}
           </div>
+
         </div>
       </section>
 
