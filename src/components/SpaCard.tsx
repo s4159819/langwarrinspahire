@@ -4,6 +4,7 @@ import spa12Seater from "@/assets/spa-12-seater.jpg";
 import spa810Pearl from "@/assets/spa-8-10-pearl.jpg";
 import spa810Blue from "@/assets/spa-8-10-blue.jpg";
 import spa68Octagonal from "@/assets/spa-6-8.jpg";
+import spa68Rect from "@/assets/spa-6-8-rect.jpg";
 
 export interface Spa {
   slug: string;
@@ -21,6 +22,7 @@ export const SPAS: Spa[] = [
     seats: "Seats 6–8",
     jets: 6,
     short: "Trailer-mounted with access stairs, handrail, LPG gas heater, 6 full-flow jets and air massage manifold.",
+    image: spa68Rect,
   },
   {
     slug: "6-8-octagonal",
