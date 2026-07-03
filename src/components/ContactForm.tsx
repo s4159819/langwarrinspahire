@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { CheckCircle2, Send } from "lucide-react";
 
-// NOTE: This form currently opens the visitor's email client via a mailto: link
-// with fields pre-filled. Swap for a real backend (Supabase/Resend/Formspree) when available.
+// Enquiries are forwarded straight to the owner's inbox via FormSubmit (no backend).
+// First submission triggers a one-time confirmation email to the recipient below.
+const FORMSUBMIT_ENDPOINT = "https://formsubmit.co/ajax/jaydenjrobinson@icloud.com";
 
 type FormState = {
   name: string; email: string; mobile: string; suburb: string; spa: string; message: string;
@@ -11,12 +12,14 @@ type FormState = {
 const initial: FormState = { name: "", email: "", mobile: "", suburb: "", spa: "", message: "" };
 
 const SPA_OPTIONS = [
-  "6–8 Seater Rectangular",
-  "6–8 Seater Octagonal",
-  "8–10 Seater",
-  "12 Seater",
+  "6–8 Seater Rectangular Spa",
+  "6–8 Seater Octagonal Spa",
+  "8–10 Seater Spa — Marbled Light Blue",
+  "8–10 Seater Spa — Marbled Blue",
+  "12 Seater Spa",
   "Not Sure",
 ];
+
 
 export function ContactForm() {
   const [f, setF] = useState<FormState>(initial);
