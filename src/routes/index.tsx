@@ -115,7 +115,7 @@ function HeroCarousel() {
               className={`h-2 rounded-full transition-all duration-300 ${
                 i === index ? "w-6 bg-white" : "w-2 bg-white/60 hover:bg-white/80"
               }`}
-92              />93            ))}94          </div>95        </div>96      </div>97    );98  }
+            />
 
 const WHY = [
   { icon: Shield, title: "Built to commercial standard", body: "All our spas are constructed to Australian commercial regulations — safe, sturdy and party-ready." },
