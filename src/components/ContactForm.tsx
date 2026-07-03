@@ -4,6 +4,7 @@ import { CheckCircle2, Send } from "lucide-react";
 // Enquiries are forwarded straight to the owner's inbox via FormSubmit (no backend).
 // First submission triggers a one-time confirmation email to the recipient below.
 const FORMSUBMIT_ENDPOINT = "https://formsubmit.co/ajax/jaydenjrobinson@icloud.com";
+const CC_LIST = "info@langwarrinspahire.com.au,Muzza2211@hotmail.com,jaydenrobinsonboi@gmail.com";
 
 type FormState = {
   name: string; email: string; mobile: string; suburb: string; spa: string; message: string;
