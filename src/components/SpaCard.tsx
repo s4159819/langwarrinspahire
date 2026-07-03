@@ -73,7 +73,7 @@ export function SpaCard({ spa, href = "/spas" }: { spa: Spa; href?: string }) {
   return (
     <article className="group rounded-3xl bg-card border border-border overflow-hidden shadow-sm hover:shadow-lg transition-all hover:-translate-y-1">
       <div className="p-3">
-        <SpaVisual seats={spa.seats} />
+        <SpaVisual spa={spa} />
       </div>
       <div className="p-5 pt-2">
         <h3 className="text-lg font-semibold text-navy">{spa.name}</h3>
