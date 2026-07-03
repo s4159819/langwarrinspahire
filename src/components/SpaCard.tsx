@@ -42,10 +42,10 @@ export const SPAS: Spa[] = [
   },
   {
     slug: "8-10-blue",
-    name: "8–10 Seater Spa — Marbled Blue",
+    name: "8–10 Seater Spa — Light Blue",
     seats: "Seats 8–10",
     jets: 6,
-    short: "Striking marbled blue octagonal interior with 6 full-flow jets, air massage, timber access step, stainless handrail and fast LPG gas heating.",
+    short: "Light blue marble octagonal interior with 6 full-flow jets, air massage, timber access step, stainless handrail and fast LPG gas heating.",
     image: spa810Blue,
   },
   {
