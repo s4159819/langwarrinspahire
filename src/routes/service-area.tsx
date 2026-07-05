@@ -9,7 +9,7 @@ import spaTrailersBranded from "@/assets/spa-trailers-branded.jpg";
 
 const TITLE = "Service Area — Melbourne South East & Mornington Peninsula | Langwarrin Spa Hire";
 const DESC = "We service select South East Melbourne suburbs including Frankston, Cranbourne, Berwick, the Mornington Peninsula and more. Not sure? Call 0447 775 332.";
-const FACEBOOK = "https://www.facebook.com/people/Langwarrin-spa-hire/100063760905681/";
+
 
 export const Route = createFileRoute("/service-area")({
   head: () => ({

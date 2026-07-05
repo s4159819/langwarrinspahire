@@ -8,7 +8,7 @@ import { MapEmbed } from "@/components/MapEmbed";
 
 const TITLE = "Contact Us | Langwarrin Spa Hire — Melbourne South East";
 const DESC = "Enquire about hiring a mobile spa. All bookings are made by phone — 0447 775 332. Use our form for general enquiries and quote requests.";
-const FACEBOOK = "https://www.facebook.com/people/Langwarrin-spa-hire/100063760905681/";
+
 
 export const Route = createFileRoute("/contact")({
   head: () => ({

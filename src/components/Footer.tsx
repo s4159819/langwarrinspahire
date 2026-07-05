@@ -3,7 +3,7 @@ import { Phone, MapPin } from "lucide-react";
 import { Logo } from "./Logo";
 import { PHONE, PHONE_HREF } from "./CallButton";
 
-const FACEBOOK = "https://www.facebook.com/people/Langwarrin-spa-hire/100063760905681/";
+
 
 export function Footer() {
   const year = new Date().getFullYear();

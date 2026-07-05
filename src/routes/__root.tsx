@@ -124,9 +124,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             addressCountry: "AU",
           },
           slogan: "Relax. Unwind. Enjoy.",
-          sameAs: [
-            "https://www.facebook.com/people/Langwarrin-spa-hire/100063760905681/",
-          ],
+          sameAs: [],
         }),
       },
     ],
