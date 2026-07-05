@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Facebook, PhoneCall } from "lucide-react";
+import { PhoneCall } from "lucide-react";
 import { PageHeroBanner } from "@/components/PageHeroBanner";
 import { SuburbGrid } from "@/components/SuburbGrid";
 import { MapEmbed } from "@/components/MapEmbed";
@@ -9,7 +9,7 @@ import spaTrailersBranded from "@/assets/spa-trailers-branded.jpg";
 
 const TITLE = "Service Area — Melbourne South East & Mornington Peninsula | Langwarrin Spa Hire";
 const DESC = "We service select South East Melbourne suburbs including Frankston, Cranbourne, Berwick, the Mornington Peninsula and more. Not sure? Call 0447 775 332.";
-const FACEBOOK = "https://www.facebook.com/people/Langwarrin-spa-hire/100063760905681/";
+
 
 export const Route = createFileRoute("/service-area")({
   head: () => ({
@@ -67,14 +67,6 @@ function ServiceAreaPage() {
             </p>
             <div className="mt-5 flex flex-col gap-3">
               <CallButton variant="primary" size="md" label={`Call ${PHONE}`} />
-              <a
-                href={FACEBOOK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-white px-5 py-3 font-semibold text-navy hover:bg-muted"
-              >
-                <Facebook className="h-4 w-4 text-spa" /> Follow us on Facebook
-              </a>
             </div>
           </div>
         </div>

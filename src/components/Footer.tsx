@@ -1,9 +1,9 @@
 import { Link } from "@tanstack/react-router";
-import { Facebook, Phone, MapPin } from "lucide-react";
+import { Phone, MapPin } from "lucide-react";
 import { Logo } from "./Logo";
 import { PHONE, PHONE_HREF } from "./CallButton";
 
-const FACEBOOK = "https://www.facebook.com/people/Langwarrin-spa-hire/100063760905681/";
+
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -44,16 +44,6 @@ export function Footer() {
             <li>
               <a href={PHONE_HREF} className="inline-flex items-center gap-2 hover:text-leaf">
                 <Phone className="h-4 w-4" /> {PHONE}
-              </a>
-            </li>
-            <li>
-              <a
-                href={FACEBOOK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 hover:text-leaf"
-              >
-                <Facebook className="h-4 w-4" /> Follow on Facebook
               </a>
             </li>
             <li className="flex items-start gap-2">

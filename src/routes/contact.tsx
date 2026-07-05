@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Facebook, PhoneCall, AlertCircle } from "lucide-react";
+import { PhoneCall, AlertCircle } from "lucide-react";
 import { PageHeroBanner } from "@/components/PageHeroBanner";
 import { CallButton, PHONE } from "@/components/CallButton";
 import { ContactForm } from "@/components/ContactForm";
@@ -8,7 +8,7 @@ import { MapEmbed } from "@/components/MapEmbed";
 
 const TITLE = "Contact Us | Langwarrin Spa Hire — Melbourne South East";
 const DESC = "Enquire about hiring a mobile spa. All bookings are made by phone — 0447 775 332. Use our form for general enquiries and quote requests.";
-const FACEBOOK = "https://www.facebook.com/people/Langwarrin-spa-hire/100063760905681/";
+
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -64,16 +64,6 @@ function ContactPage() {
               </a>
               <p className="mt-2 text-sm text-slate-ink">Real person, real fast — no booking system runaround.</p>
             </div>
-            <a
-              href={FACEBOOK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block rounded-3xl border border-border bg-card p-6 hover:bg-muted transition"
-            >
-              <Facebook className="h-8 w-8 text-spa" />
-              <h3 className="mt-3 text-lg font-semibold">Follow us on Facebook</h3>
-              <p className="mt-1 text-sm text-slate-ink">See our latest spas out at events across Melbourne.</p>
-            </a>
             <div className="rounded-3xl border border-border bg-aqua/50 p-6">
               <h3 className="text-lg font-semibold text-navy">We only service select parts of Victoria</h3>
               <p className="mt-1 text-sm text-slate-ink">Check your suburb is on our list before enquiring.</p>
