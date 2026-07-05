@@ -46,16 +46,6 @@ export function Footer() {
                 <Phone className="h-4 w-4" /> {PHONE}
               </a>
             </li>
-            <li>
-              <a
-                href={FACEBOOK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 hover:text-leaf"
-              >
-                <Facebook className="h-4 w-4" /> Follow on Facebook
-              </a>
-            </li>
             <li className="flex items-start gap-2">
               <MapPin className="h-4 w-4 mt-0.5" />
               <span>

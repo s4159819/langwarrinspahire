@@ -67,14 +67,6 @@ function ServiceAreaPage() {
             </p>
             <div className="mt-5 flex flex-col gap-3">
               <CallButton variant="primary" size="md" label={`Call ${PHONE}`} />
-              <a
-                href={FACEBOOK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-white px-5 py-3 font-semibold text-navy hover:bg-muted"
-              >
-                <Facebook className="h-4 w-4 text-spa" /> Follow us on Facebook
-              </a>
             </div>
           </div>
         </div>

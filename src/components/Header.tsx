@@ -13,7 +13,7 @@ const nav = [
   { to: "/contact", label: "Contact" },
 ] as const;
 
-const FACEBOOK = "https://www.facebook.com/people/Langwarrin-spa-hire/100063760905681/";
+
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -56,15 +56,6 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <a
-            href={FACEBOOK}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden md:inline-flex h-10 w-10 items-center justify-center rounded-full text-spa hover:bg-aqua/50 transition"
-            aria-label="Follow Langwarrin Spa Hire on Facebook"
-          >
-            <Facebook className="h-5 w-5" />
-          </a>
           <div className="hidden sm:block">
             <CallButton variant="accent" size="sm" label="Call Now" />
           </div>
@@ -97,15 +88,6 @@ export function Header() {
             ))}
             <div className="mt-3 flex items-center gap-3">
               <CallButton variant="primary" size="md" />
-              <a
-                href={FACEBOOK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-muted text-spa"
-                aria-label="Facebook"
-              >
-                <Facebook className="h-5 w-5" />
-              </a>
             </div>
           </nav>
         </div>
