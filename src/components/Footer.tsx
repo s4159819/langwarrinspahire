@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Facebook, Phone, MapPin } from "lucide-react";
+import { Phone, MapPin } from "lucide-react";
 import { Logo } from "./Logo";
 import { PHONE, PHONE_HREF } from "./CallButton";
 

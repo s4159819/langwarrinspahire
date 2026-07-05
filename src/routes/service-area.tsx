@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Facebook, PhoneCall } from "lucide-react";
+import { PhoneCall } from "lucide-react";
 import { PageHeroBanner } from "@/components/PageHeroBanner";
 import { SuburbGrid } from "@/components/SuburbGrid";
 import { MapEmbed } from "@/components/MapEmbed";

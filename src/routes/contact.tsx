@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Facebook, PhoneCall, AlertCircle } from "lucide-react";
+import { PhoneCall, AlertCircle } from "lucide-react";
 import { PageHeroBanner } from "@/components/PageHeroBanner";
 import { CallButton, PHONE } from "@/components/CallButton";
 import { ContactForm } from "@/components/ContactForm";
