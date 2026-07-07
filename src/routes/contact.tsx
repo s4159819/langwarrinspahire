@@ -1,4 +1,5 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { PhoneCall, AlertCircle } from "lucide-react";
 import { PageHeroBanner } from "@/components/PageHeroBanner";
 import { CallButton, PHONE } from "@/components/CallButton";
@@ -9,22 +10,21 @@ import { MapEmbed } from "@/components/MapEmbed";
 const TITLE = "Contact Us | Langwarrin Spa Hire — Melbourne South East";
 const DESC = "Enquire about hiring a mobile spa. All bookings are made by phone — 0447 775 332. Use our form for general enquiries and quote requests.";
 
+export default function ContactPage() {
+  return (
+    <>
+      <Helmet>
+        <title>{TITLE}</title>
+        <meta name="description" content={DESC} />
+        <meta property="og:title" content={TITLE} />
+        <meta property="og:description" content={DESC} />
+      </Helmet>
+      <ContactContent />
+    </>
+  );
+}
 
-export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: TITLE },
-      { name: "description", content: DESC },
-      { property: "og:title", content: TITLE },
-      { property: "og:description", content: DESC },
-      { property: "og:url", content: "/contact" },
-    ],
-    links: [{ rel: "canonical", href: "/contact" }],
-  }),
-  component: ContactPage,
-});
-
-function ContactPage() {
+function ContactContent() {
   return (
     <>
       <PageHeroBanner
