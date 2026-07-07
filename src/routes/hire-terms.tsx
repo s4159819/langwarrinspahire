@@ -83,7 +83,21 @@ function AccordionItem({ title, body, defaultOpen = false }: { title: string; bo
   );
 }
 
-function HireTermsPage() {
+export default function HireTermsPage() {
+  return (
+    <>
+      <Helmet>
+        <title>{TITLE}</title>
+        <meta name="description" content={DESC} />
+        <meta property="og:title" content={TITLE} />
+        <meta property="og:description" content={DESC} />
+      </Helmet>
+      <HireTermsContent />
+    </>
+  );
+}
+
+function HireTermsContent() {
   return (
     <>
       <PageHeroBanner
