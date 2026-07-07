@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { Helmet } from "react-helmet-async";
 import { Users, Sparkles, Flame, ShieldCheck } from "lucide-react";
 import { PageHeroBanner } from "@/components/PageHeroBanner";
 import { CallButton, PHONE } from "@/components/CallButton";
@@ -10,21 +10,21 @@ import { SPAS } from "@/components/SpaCard";
 const TITLE = "Our Spas — Book Your Luxurious Spa Hire | Langwarrin Spa Hire";
 const DESC = "Explore our range of trailer-mounted mobile spas — 6–8, 8–10 and 12 seaters. Gas heated, jetted, fully set up. Book by phone: 0447 775 332.";
 
-export const Route = createFileRoute("/spas")({
-  head: () => ({
-    meta: [
-      { title: TITLE },
-      { name: "description", content: DESC },
-      { property: "og:title", content: TITLE },
-      { property: "og:description", content: DESC },
-      { property: "og:url", content: "/spas" },
-    ],
-    links: [{ rel: "canonical", href: "/spas" }],
-  }),
-  component: SpasPage,
-});
+export default function SpasPage() {
+  return (
+    <>
+      <Helmet>
+        <title>{TITLE}</title>
+        <meta name="description" content={DESC} />
+        <meta property="og:title" content={TITLE} />
+        <meta property="og:description" content={DESC} />
+      </Helmet>
+      <SpasContent />
+    </>
+  );
+}
 
-function SpasPage() {
+function SpasContent() {
   return (
     <>
       <PageHeroBanner
