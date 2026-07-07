@@ -96,8 +96,7 @@ export function SpaCard({ spa, href = "/spas" }: { spa: Spa; href?: string }) {
         <h3 className="text-lg font-semibold text-navy">{spa.name}</h3>
         <p className="mt-2 text-sm text-slate-ink leading-relaxed">{spa.short}</p>
         <Link
-          to={href}
-          hash={spa.slug}
+          to={`${href}#${spa.slug}`}
           className="mt-4 inline-flex items-center gap-1.5 text-spa font-semibold text-sm group-hover:gap-2.5 transition-all"
         >
           View Details <ArrowRight className="h-4 w-4" />
