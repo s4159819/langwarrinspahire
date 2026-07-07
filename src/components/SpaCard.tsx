@@ -1,5 +1,5 @@
 import { Users, ArrowRight } from "lucide-react";
-import { Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import spa12Seater from "@/assets/spa-12-seater.jpg";
 import spa810Pearl from "@/assets/spa-8-10-pearl.jpg";
 import spa810Blue from "@/assets/spa-8-10-blue.jpg";

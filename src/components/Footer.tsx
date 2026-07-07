@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { Phone, MapPin } from "lucide-react";
 import { Logo } from "./Logo";
 import { PHONE, PHONE_HREF } from "./CallButton";
