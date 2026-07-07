@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { Helmet } from "react-helmet-async";
 import { PhoneCall } from "lucide-react";
 import { PageHeroBanner } from "@/components/PageHeroBanner";
 import { SuburbGrid } from "@/components/SuburbGrid";
@@ -10,22 +10,21 @@ import spaTrailersBranded from "@/assets/spa-trailers-branded.jpg";
 const TITLE = "Service Area — Melbourne South East & Mornington Peninsula | Langwarrin Spa Hire";
 const DESC = "We service select South East Melbourne suburbs including Frankston, Cranbourne, Berwick, the Mornington Peninsula and more. Not sure? Call 0447 775 332.";
 
+export default function ServiceAreaPage() {
+  return (
+    <>
+      <Helmet>
+        <title>{TITLE}</title>
+        <meta name="description" content={DESC} />
+        <meta property="og:title" content={TITLE} />
+        <meta property="og:description" content={DESC} />
+      </Helmet>
+      <ServiceAreaContent />
+    </>
+  );
+}
 
-export const Route = createFileRoute("/service-area")({
-  head: () => ({
-    meta: [
-      { title: TITLE },
-      { name: "description", content: DESC },
-      { property: "og:title", content: TITLE },
-      { property: "og:description", content: DESC },
-      { property: "og:url", content: "/service-area" },
-    ],
-    links: [{ rel: "canonical", href: "/service-area" }],
-  }),
-  component: ServiceAreaPage,
-});
-
-function ServiceAreaPage() {
+function ServiceAreaContent() {
   return (
     <>
       <PageHeroBanner
