@@ -5,13 +5,13 @@ import { Logo } from "./Logo";
 import { CallButton } from "./CallButton";
 import { cn } from "@/lib/utils";
 
-const nav = [
+const nav: { to: string; label: string; end?: boolean }[] = [
   { to: "/", label: "Home", end: true },
   { to: "/spas", label: "Our Spas" },
   { to: "/service-area", label: "Service Area" },
   { to: "/hire-terms", label: "Hire Terms" },
   { to: "/contact", label: "Contact" },
-] as const;
+];
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
