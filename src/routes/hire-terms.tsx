@@ -1,28 +1,15 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { ChevronDown, Sparkles, DollarSign } from "lucide-react";
 import { PageHeroBanner } from "@/components/PageHeroBanner";
 import { CallButton, PHONE } from "@/components/CallButton";
 import { CallBanner } from "@/components/CallBanner";
+import type { ReactNode } from "react";
 
 const TITLE = "Hire Terms & Conditions | Langwarrin Spa Hire";
 const DESC = "Deposit, clearance requirements, bond and setup rules for hiring a mobile spa from Langwarrin Spa Hire. Read before booking.";
 
-export const Route = createFileRoute("/hire-terms")({
-  head: () => ({
-    meta: [
-      { title: TITLE },
-      { name: "description", content: DESC },
-      { property: "og:title", content: TITLE },
-      { property: "og:description", content: DESC },
-      { property: "og:url", content: "/hire-terms" },
-    ],
-    links: [{ rel: "canonical", href: "/hire-terms" }],
-  }),
-  component: HireTermsPage,
-});
-
-const TERMS: { title: string; body: React.ReactNode }[] = [
+const TERMS: { title: string; body: ReactNode }[] = [
   {
     title: "1. Deposit",
     body: <>A <strong>$200.00 deposit (non-refundable)</strong> must be received two weeks prior to the hire date, and within 7 days of booking, to secure the spa.</>,
@@ -79,7 +66,7 @@ const TERMS: { title: string; body: React.ReactNode }[] = [
   { title: "11. Delivery time", body: <>Delivery time is arranged and confirmed by phone prior to delivery.</> },
 ];
 
-function AccordionItem({ title, body, defaultOpen = false }: { title: string; body: React.ReactNode; defaultOpen?: boolean }) {
+function AccordionItem({ title, body, defaultOpen = false }: { title: string; body: ReactNode; defaultOpen?: boolean }) {
   const [open, setOpen] = useState(defaultOpen);
   return (
     <div className="rounded-2xl border border-border bg-card overflow-hidden">
@@ -96,7 +83,21 @@ function AccordionItem({ title, body, defaultOpen = false }: { title: string; bo
   );
 }
 
-function HireTermsPage() {
+export default function HireTermsPage() {
+  return (
+    <>
+      <Helmet>
+        <title>{TITLE}</title>
+        <meta name="description" content={DESC} />
+        <meta property="og:title" content={TITLE} />
+        <meta property="og:description" content={DESC} />
+      </Helmet>
+      <HireTermsContent />
+    </>
+  );
+}
+
+function HireTermsContent() {
   return (
     <>
       <PageHeroBanner

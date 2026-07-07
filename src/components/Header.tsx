@@ -1,19 +1,17 @@
-import { Link } from "@tanstack/react-router";
+import { Link, NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Logo } from "./Logo";
 import { CallButton } from "./CallButton";
 import { cn } from "@/lib/utils";
 
-const nav = [
-  { to: "/", label: "Home" },
+const nav: { to: string; label: string; end?: boolean }[] = [
+  { to: "/", label: "Home", end: true },
   { to: "/spas", label: "Our Spas" },
   { to: "/service-area", label: "Service Area" },
   { to: "/hire-terms", label: "Hire Terms" },
   { to: "/contact", label: "Contact" },
-] as const;
-
-
+];
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -42,16 +40,21 @@ export function Header() {
 
         <nav className="hidden lg:flex items-center gap-1">
           {nav.map((n) => (
-            <Link
+            <NavLink
               key={n.to}
               to={n.to}
-              activeOptions={{ exact: n.to === "/" }}
-              activeProps={{ className: "text-navy bg-aqua/50" }}
-              inactiveProps={{ className: "text-slate-ink hover:text-navy hover:bg-muted" }}
-              className="px-3 py-2 rounded-full text-sm font-medium transition-colors"
+              end={n.end}
+              className={({ isActive }) =>
+                cn(
+                  "px-3 py-2 rounded-full text-sm font-medium transition-colors",
+                  isActive
+                    ? "text-navy bg-aqua/50"
+                    : "text-slate-ink hover:text-navy hover:bg-muted",
+                )
+              }
             >
               {n.label}
-            </Link>
+            </NavLink>
           ))}
         </nav>
 
@@ -74,17 +77,20 @@ export function Header() {
         <div className="lg:hidden border-t border-border bg-white">
           <nav className="mx-auto max-w-7xl px-4 py-3 flex flex-col">
             {nav.map((n) => (
-              <Link
+              <NavLink
                 key={n.to}
                 to={n.to}
+                end={n.end}
                 onClick={() => setOpen(false)}
-                activeOptions={{ exact: n.to === "/" }}
-                activeProps={{ className: "text-navy bg-aqua/50" }}
-                inactiveProps={{ className: "text-slate-ink" }}
-                className="px-3 py-3 rounded-lg text-base font-medium"
+                className={({ isActive }) =>
+                  cn(
+                    "px-3 py-3 rounded-lg text-base font-medium",
+                    isActive ? "text-navy bg-aqua/50" : "text-slate-ink",
+                  )
+                }
               >
                 {n.label}
-              </Link>
+              </NavLink>
             ))}
             <div className="mt-3 flex items-center gap-3">
               <CallButton variant="primary" size="md" />
