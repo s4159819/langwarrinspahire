@@ -1,5 +1,6 @@
 import React from "react";
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import {
   Shield, Truck, Sparkles, Flame, CheckCircle2, ArrowRight, PhoneCall,
   ChevronLeft, ChevronRight,
@@ -22,19 +23,20 @@ import spa68Rect from "@/assets/spa-6-8-rect.jpg";
 const TITLE = "Langwarrin Spa Hire — Mobile Hot Tub Hire, Melbourne South East";
 const DESC = "Mobile spa hire across Melbourne's South East & Mornington Peninsula. Delivered, set up and picked up for parties, birthdays and events. Call 0447 775 332.";
 
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: TITLE },
-      { name: "description", content: DESC },
-      { property: "og:title", content: TITLE },
-      { property: "og:description", content: DESC },
-      { property: "og:url", content: "/" },
-    ],
-    links: [{ rel: "canonical", href: "/" }],
-  }),
-  component: Home,
-});
+export default function Home() {
+  return (
+    <>
+      <Helmet>
+        <title>{TITLE}</title>
+        <meta name="description" content={DESC} />
+        <meta property="og:title" content={TITLE} />
+        <meta property="og:description" content={DESC} />
+      </Helmet>
+      <HomeContent />
+    </>
+  );
+}
+
 
 const TRUST = [
   { icon: Shield, label: "Australian Commercial Standard" },
