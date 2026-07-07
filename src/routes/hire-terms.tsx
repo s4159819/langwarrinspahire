@@ -66,7 +66,7 @@ const TERMS: { title: string; body: ReactNode }[] = [
   { title: "11. Delivery time", body: <>Delivery time is arranged and confirmed by phone prior to delivery.</> },
 ];
 
-function AccordionItem({ title, body, defaultOpen = false }: { title: string; body: React.ReactNode; defaultOpen?: boolean }) {
+function AccordionItem({ title, body, defaultOpen = false }: { title: string; body: ReactNode; defaultOpen?: boolean }) {
   const [open, setOpen] = useState(defaultOpen);
   return (
     <div className="rounded-2xl border border-border bg-card overflow-hidden">
