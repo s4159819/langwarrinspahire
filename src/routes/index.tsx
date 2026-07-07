@@ -133,7 +133,7 @@ const WHY = [
   { icon: PhoneCall, title: "Simple phone booking", body: "Talk to a real person — no faceless online checkout, no guesswork." },
 ];
 
-function Home() {
+function HomeContent() {
   return (
     <>
       {/* HERO */}
