@@ -45,21 +45,25 @@ export function ContactForm() {
     if (!validate()) return;
     setBusy(true);
     try {
+      const payload: Record<string, string> = {
+        _subject: `Spa hire enquiry — ${f.name}`,
+        _template: "table",
+        _captcha: "false",
+        _cc: CC_LIST,
+        Name: f.name,
+        Email: f.email,
+        Mobile: f.mobile,
+        Suburb: f.suburb,
+        "Spa size": f.spa,
+        Message: f.message || "(none)",
+      };
+      const fd = new FormData();
+      Object.entries(payload).forEach(([k, v]) => fd.append(k, v));
+      // Use FormData (multipart) to avoid a JSON CORS preflight which FormSubmit blocks in some browsers.
       const res = await fetch(FORMSUBMIT_ENDPOINT, {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-      body: JSON.stringify({
-          _subject: `Spa hire enquiry — ${f.name}`,
-          _template: "table",
-          _captcha: "false",
-          _cc: CC_LIST,
-          Name: f.name,
-          Email: f.email,
-          Mobile: f.mobile,
-          Suburb: f.suburb,
-          "Spa size": f.spa,
-          Message: f.message || "(none)",
-        }),
+        headers: { Accept: "application/json" },
+        body: fd,
       });
       if (!res.ok) throw new Error("Send failed");
       setSent(true);
